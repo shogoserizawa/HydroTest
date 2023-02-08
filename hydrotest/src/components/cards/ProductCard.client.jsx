@@ -31,11 +31,13 @@ export function ProductCard({product, label, className, loading, onClick}) {
   }
 
   const styles = clsx('grid gap-6', className);
-
+  
+  //Feature Productsのページ
   return (
     <Link onClick={onClick} to={`/products/${product.handle}`}>
       <div className={styles}>
-        <div className="card-image aspect-[4/5] bg-primary/5">
+      {/* className="card-image aspect-[4/5] bg-primary/5" これを削除↓*/}
+        <div className="productCardHome"> 
           <Text
             as="label"
             size="fine"
@@ -46,7 +48,7 @@ export function ProductCard({product, label, className, loading, onClick}) {
           {image && (
             <Image
               className="aspect-[4/5] w-full object-cover fadeIn"
-              widths={[320]}
+              widths={[320]} //画質
               sizes="320px"
               loaderOptions={{
                 crop: 'center',

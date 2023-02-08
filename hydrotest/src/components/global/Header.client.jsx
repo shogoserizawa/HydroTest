@@ -59,6 +59,7 @@ export function Header({title, menu}) {
   );
 }
 
+//モバイル用ヘッダー
 function MobileHeader({countryCode, title, isHome, openCart, openMenu}) {
   const {y} = useWindowScroll();
 
@@ -122,6 +123,7 @@ function MobileHeader({countryCode, title, isHome, openCart, openMenu}) {
   );
 }
 
+//デスクトップ用ヘッダー
 function DesktopHeader({countryCode, isHome, menu, openCart, title}) {
   const {y} = useWindowScroll();
 
@@ -148,6 +150,9 @@ function DesktopHeader({countryCode, isHome, menu, openCart, title}) {
           {(menu?.items || []).map((item) => (
             <Link key={item.id} to={item.to} target={item.target}>
               {item.title}
+              {item?.items.length > 0 && (
+                <>{console.log(item.items.length)}</>
+              )}
             </Link>
           ))}
         </nav>
