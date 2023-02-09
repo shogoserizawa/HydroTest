@@ -11,12 +11,12 @@ export default defineConfig({
       // @ts-ignore
       process?.env.PUBLIC_STOREFRONT_API_TOKEN ||
       '5a423cb62c8c06a39a2704c6da379d96',
-    // privateStorefrontToken:
-    //   // @ts-ignore
-    //   process?.env.PRIVATE_STOREFRONT_API_TOKEN,
+    privateStorefrontToken:
+      // @ts-ignore
+      process?.env.PRIVATE_STOREFRONT_API_TOKEN,
     storefrontApiVersion: '2022-07',
-    // @ts-ignore
-    // storefrontId: process?.env.PUBLIC_STOREFRONT_ID,
+      // @ts-ignore
+    storefrontId: process?.env.PUBLIC_STOREFRONT_ID,
   },
   session: CookieSessionStorage('__session', {
     path: '/',
