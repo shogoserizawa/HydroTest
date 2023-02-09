@@ -18,12 +18,12 @@ export default function Login({response}) {
   });
 
   return (
-    <Layout>
+    <>
       <Suspense>
         <Seo type="noindex" data={{title: 'Login'}} />
       </Suspense>
       <AccountLoginForm shopName={name} /> 
-    </Layout>
+    </>
   );
 }
 

@@ -9,12 +9,12 @@ export default function Register({response}) {
   response.cache(CacheNone());
 
   return (
-    <Layout>
+    <>
       <Suspense>
         <Seo type="noindex" data={{title: 'Register'}} />
       </Suspense>
       <AccountCreateForm />
-    </Layout>
+    </>
   );
 }
 
