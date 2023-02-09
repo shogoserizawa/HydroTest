@@ -36,27 +36,29 @@ export function ProductCard({product, label, className, loading, onClick}) {
   return (
     <Link onClick={onClick} to={`/products/${product.handle}`}>
       <div className={styles}>
-      {/* className="card-image aspect-[4/5] bg-primary/5" これを削除↓*/}
+      {/* className="card-image aspect-[4/5] bg-primary/5" これを削除↓ className={styles}↑*/}
         <div className="productCardHome"> 
           <Text
             as="label"
             size="fine"
-            className="absolute top-0 right-0 m-4 text-right text-notice"
+            className = 'ProductCardHome_ImgText'
+            // className="absolute top-0 right-0 m-4 text-right text-notice"
           >
             {cardLabel}
           </Text>
           {image && (
             <Image
-              className="aspect-[4/5] w-full object-cover fadeIn"
-              widths={[320]} //画質
-              sizes="320px"
-              loaderOptions={{
-                crop: 'center',
-                scale: 2,
-                width: 320,
-                height: 400,
-              }}
-              // @ts-ignore Stock type has `src` as optional
+              className='ProductCardHome_Card'
+              //className="aspect-[4/5] w-full object-cover fadeIn"
+              // widths={[320]} //画質
+              // sizes="100px"
+              // loaderOptions={{
+              //   crop: 'center',
+              //   scale: 2,
+              //   width: 320,
+              //   height: 400,
+              // }}
+              // // @ts-ignore Stock type has `src` as optional
               data={image}
               alt={image.altText || `Picture of ${product.title}`}
               loading={loading}

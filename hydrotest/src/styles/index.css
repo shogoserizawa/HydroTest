@@ -178,6 +178,15 @@ shop-pay-button {
 }
 
 .productCardHome {
-  height: 200px;
+  height: 250px;
+}
+
+.ProductCardHome_Card {
+  width: 200px;
+  height: 250px;
+}
+
+.ProductCardHome_ImgText{
+  color: red;
 }
 
