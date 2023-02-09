@@ -22,7 +22,7 @@ export default function Login({response}) {
       <Suspense>
         <Seo type="noindex" data={{title: 'Login'}} />
       </Suspense>
-      <AccountLoginForm shopName={name} />
+      <AccountLoginForm shopName={name} /> 
     </Layout>
   );
 }

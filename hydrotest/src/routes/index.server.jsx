@@ -7,15 +7,18 @@ import {
   useServerAnalytics,
   useLocalization,
   useShopQuery,
+  useSession,
 } from '@shopify/hydrogen';
 
 import {MEDIA_FRAGMENT, PRODUCT_CARD_FRAGMENT} from '~/lib/fragments';
 import {getHeroPlaceholder} from '~/lib/placeholders';
 import {FeaturedCollections, Hero} from '~/components';
 import {Layout, ProductSwimlane} from '~/components/index.server';
-import { AccountLoginForm } from '../components/index';
+import {AccountLoginForm} from '../components/index';
 
 export default function Homepage() {
+  const {customerAccessToken} = useSession();
+
   useServerAnalytics({
     shopify: {
       canonicalPath: '/',
@@ -23,19 +26,21 @@ export default function Homepage() {
     },
   });
 
-  // if (true) {
-  //   return <AccountLoginForm />;
-  // }
-
   return (
-    <Layout>
-      <Suspense>
-        <SeoForHomepage />
-      </Suspense>
-      <Suspense>
-        <HomepageContent />
-      </Suspense>
-    </Layout>
+    <>
+      {customerAccessToken === '' ? (
+        <AccountLoginForm />
+      ) : (
+        <Layout>
+          <Suspense>
+            <SeoForHomepage />
+          </Suspense>
+          <Suspense>
+            <HomepageContent />
+          </Suspense>
+        </Layout>
+      )}
+    </>
   );
 }
 
